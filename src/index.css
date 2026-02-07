@@ -1,0 +1,223 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply antialiased;
+  }
+}
+
+/* Custom scrollbar for webkit */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+@layer components {
+
+  .app-container {
+    @apply font-sans text-gray-900 bg-white min-h-screen flex flex-col;
+  }
+
+  /* Header */
+  .header {
+    @apply fixed top-0 left-0 w-full bg-white/90 backdrop-blur-sm shadow-sm z-50;
+  }
+
+  .header-container {
+    @apply max-w-6xl mx-auto px-6 py-4 flex justify-between items-center;
+  }
+
+  .header-logo {
+    @apply font-bold text-xl tracking-tight;
+  }
+
+  .nav {
+    @apply flex items-center gap-6 text-sm font-medium text-gray-600;
+  }
+
+  .nav-link {
+    @apply hover:text-black transition;
+  }
+
+  .nav-btn {
+    @apply hover:text-black transition;
+  }
+
+  .blog-btn {
+    @apply bg-black text-white px-4 py-2 rounded-full hover:bg-gray-800 transition;
+  }
+
+  /* Introduction */
+  .intro-section {
+    @apply pt-32 pb-16 bg-white;
+  }
+
+  .intro-container {
+    @apply max-w-4xl mx-auto px-6 text-center;
+  }
+
+  .intro-title {
+    @apply text-4xl md:text-5xl font-extrabold mb-4 tracking-tight;
+  }
+
+  .intro-subtitle {
+    @apply text-xl text-gray-600 mb-8 font-light;
+  }
+
+  .intro-bio {
+    @apply text-lg text-gray-800 leading-relaxed max-w-2xl mx-auto mb-10;
+  }
+
+  .social-links {
+    @apply flex justify-center gap-6;
+  }
+
+  .social-link {
+    @apply text-gray-600 hover:text-black transition;
+  }
+
+  /* Section */
+  .section {
+    @apply py-16;
+  }
+
+  .section-container {
+    @apply max-w-4xl mx-auto px-6;
+  }
+
+  .section-title {
+    @apply text-2xl font-bold mb-8 text-gray-800 border-b pb-2;
+  }
+
+  .section-body {
+    @apply space-y-6;
+  }
+
+  /* Career */
+  .career-item {
+    @apply mb-8 last:mb-0;
+  }
+
+  .career-header {
+    @apply flex flex-col md:flex-row justify-between items-start mb-2;
+  }
+
+  .career-company {
+    @apply font-semibold text-lg;
+  }
+
+  .career-duration {
+    @apply text-sm text-gray-500 font-mono;
+  }
+
+  .career-role {
+    @apply text-gray-700 italic mb-2;
+  }
+
+  .career-desc {
+    @apply text-gray-600 text-sm leading-relaxed;
+  }
+
+  /* Papers */
+  .papers-list {
+    @apply list-none space-y-4;
+  }
+
+  .paper-link {
+    @apply block hover:bg-gray-50 p-4 -mx-4 rounded-lg transition;
+  }
+
+  .paper-title {
+    @apply font-medium text-gray-900 group-hover:text-black;
+  }
+
+  .paper-meta {
+    @apply text-sm text-gray-500 mt-1;
+  }
+
+  /* Projects */
+  .projects-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+  }
+
+  .project-card {
+    @apply block border border-gray-100 p-6 rounded-lg hover:shadow-md hover:border-gray-200 transition bg-white;
+  }
+
+  .project-title {
+    @apply font-semibold text-lg mb-2;
+  }
+
+  .project-desc {
+    @apply text-gray-600 text-sm mb-4 h-12 overflow-hidden;
+  }
+
+  .tech-stack {
+    @apply flex flex-wrap gap-2;
+  }
+
+  .tech-tag {
+    @apply bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded;
+  }
+
+  /* Blog */
+  .blog-page {
+    @apply pt-32 pb-16 px-6 max-w-4xl mx-auto;
+  }
+
+  .blog-page-title {
+    @apply text-4xl font-extrabold mb-12 border-b pb-4;
+  }
+
+  .blog-list {
+    @apply space-y-8;
+  }
+
+  .blog-item-link {
+    @apply block;
+  }
+
+  .blog-item-title {
+    @apply text-2xl font-bold group-hover:underline decoration-2 underline-offset-4;
+  }
+
+  .blog-item-date {
+    @apply text-sm text-gray-500 mt-1 mb-2;
+  }
+
+  .blog-item-desc {
+    @apply text-gray-700;
+  }
+
+  /* Blog Post */
+  .blog-post-article {
+    @apply pt-32 pb-16 px-6 max-w-3xl mx-auto prose lg:prose-xl prose-slate;
+  }
+
+  .back-link {
+    @apply no-underline text-sm text-gray-500 hover:text-black mb-8 block;
+  }
+
+  .post-date {
+    @apply text-sm text-gray-500 not-prose mb-8;
+  }
+
+  /* Footer */
+  .footer {
+    @apply py-12 text-center text-gray-400 text-sm bg-gray-900;
+  }
+}
