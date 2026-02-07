@@ -44,9 +44,7 @@
     @apply font-bold text-xl tracking-tight;
   }
 
-  .nav {
-    @apply flex items-center gap-6 text-sm font-medium text-gray-600;
-  }
+
 
   .nav-link {
     @apply hover:text-black transition;
@@ -58,6 +56,10 @@
 
   .blog-btn {
     @apply bg-black text-white px-4 py-2 rounded-full hover:bg-gray-800 transition;
+  }
+
+  .mobile-menu-bg {
+    @apply bg-white;
   }
 
   /* Introduction */
