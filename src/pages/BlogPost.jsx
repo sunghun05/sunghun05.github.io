@@ -55,7 +55,7 @@ const BlogPost = () => {
                 &larr; Back to Blog
             </Link>
             <h1>{meta.title}</h1>
-            <p className="post-date">{meta.date}</p>
+            <p className="post-date not-prose">{meta.date}</p>
             <ReactMarkdown>{content}</ReactMarkdown>
         </article>
     );

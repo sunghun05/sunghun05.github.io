@@ -1,6 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @layer base {
   html {
@@ -213,7 +212,7 @@
   }
 
   .post-date {
-    @apply text-sm text-gray-500 not-prose mb-8;
+    @apply text-sm text-gray-500 mb-8;
   }
 
   /* Footer */
