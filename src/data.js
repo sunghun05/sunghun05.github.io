@@ -1,57 +1,58 @@
 export const profile = {
-  name: "Your Name",
-  title: "Researcher & Developer",
-  bio: "Brief introduction about yourself. Focus on your key strengths and interests.",
-  email: "your.email@example.com",
+  name: "Sunghun Wang",
+  title: "Computer Software Undergraduate Student",
+  bio: "Researching, Studying, and Building on Edge AI and Software Engineering.",
+  email: "sunghun051107@gmail.com",
 };
+export const about = "I am an undergraduate student at Soonchunhyang University, majoring in Computer Software Engineering. I have a strong passion for researching efficient AI models for edge devices. Currently, I'm studying Computer Vision Models using edge devices and NPUs.\n\n저는 순천향대학교 컴퓨터 소프트웨어 공학과 학부생입니다. 엣지 디바이스에서 효율적인 AI 모델을 연구하는 데 큰 열정을 가지고 있습니다. 현재는 엣지 디바이스와 NPU를 활용한 컴퓨터 비전 모델을 연구하고 있습니다.";
+
+export const researchInterests = [
+  "Edge AI",
+  "Computer Vision",
+  "Reinforcement Learning",
+  "Software Engineering",
+];
 
 export const career = [
   {
-    company: "Company Name",
-    role: "Job Title",
-    duration: "Jan 2023 - Present",
-    description: "Brief description of your responsibilities and achievements.",
+    company: "INS-LAB",
+    role: "Undergraduate Research Assistant",
+    duration: "April 2024 - Present",
+    description: "",
   },
   {
-    company: "Previous Company",
-    role: "Previous Role",
-    duration: "Jan 2020 - Dec 2022",
-    description: "Brief description of your responsibilities and achievements.",
-  },
+    company: "Soonchunhyang University",
+    role: "Undergraduate Student",
+    duration: "March 2024 - Present",
+    description: "",
+  }
 ];
 
 export const papers = [
   {
     title: "Paper Title 1",
     conference: "Conference Name",
-    year: "2024",
+    year: "2025",
     link: "#",
-  },
-  {
-    title: "Paper Title 2",
-    conference: "Journal Name",
-    year: "2023",
-    link: "#",
-  },
+  }
 ];
 
 export const projects = [
   {
-    title: "Project Name 1",
-    description: "Brief description of the project.",
-    techStack: ["React", "Node.js"],
+    title: "LabOps Frontend",
+    description: "Developed a frontend for LabOps, a platform for managing laboratory AI development.",
+    techStack: ["React", "TypeScript", "CSS"],
     link: "#",
   },
   {
-    title: "Project Name 2",
-    description: "Brief description of the project.",
-    techStack: ["Python", "TensorFlow"],
+    title: "Envac Cleanet",
+    description: "Development of a smart trash can and illegal dumping detection algorithm for smart cities.",
+    techStack: ["Hailo-8", "Linux", "Python", "PyTorch"],
     link: "#",
   },
 ];
 
 export const social = {
-  github: "https://github.com/yourusername",
-  linkedin: "https://linkedin.com/in/yourusername",
-  blog: "https://yourblog.com",
+  github: "https://github.com/sunghun05",
+  blog: "https://sunghun05.github.io",
 };

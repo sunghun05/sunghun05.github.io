@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
+import rehypeRaw from "rehype-raw";
+import "katex/dist/katex.min.css";
 
 
 const parseFrontmatter = (text) => {
@@ -56,7 +60,12 @@ const BlogPost = () => {
             </Link>
             <h1>{meta.title}</h1>
             <p className="post-date not-prose">{meta.date}</p>
-            <ReactMarkdown>{content}</ReactMarkdown>
+            <ReactMarkdown
+                remarkPlugins={[remarkMath]}
+                rehypePlugins={[rehypeKatex, rehypeRaw]}
+            >
+                {content}
+            </ReactMarkdown>
         </article>
     );
 };

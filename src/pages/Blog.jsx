@@ -23,6 +23,7 @@ const parseFrontmatter = (text) => {
 
 const Blog = () => {
     const [posts, setPosts] = useState([]);
+    const [selectedTopic, setSelectedTopic] = useState("All");
 
     useEffect(() => {
         const modules = import.meta.glob("../postings/*.md", { query: "?raw", import: "default", eager: true });
@@ -32,27 +33,69 @@ const Blog = () => {
             return {
                 ...data,
                 path: path,
+                topic: data.topic || "Uncategorized"
             };
         });
 
         setPosts(loadedPosts.sort((a, b) => new Date(b.date) - new Date(a.date)));
     }, []);
 
+    const topics = ["All", ...new Set(posts.map(post => post.topic))];
+    const filteredPosts = selectedTopic === "All"
+        ? posts
+        : posts.filter(post => post.topic === selectedTopic);
+
     return (
-        <div className="blog-page">
-            <h1 className="blog-page-title">Blog</h1>
-            <div className="blog-list">
-                {posts.map((post) => (
-                    <div key={post.slug} className="group">
-                        <Link to={`/blog/${post.slug}`} className="blog-item-link">
-                            <h2 className="blog-item-title">
-                                {post.title}
-                            </h2>
-                            <p className="blog-item-date">{post.date}</p>
-                            <p className="blog-item-desc">{post.description}</p>
-                        </Link>
-                    </div>
-                ))}
+        <div className="pt-32 pb-16 px-6 max-w-6xl mx-auto flex flex-col md:flex-row gap-12">
+            {/* Sidebar */}
+            <aside className="w-full md:w-64 flex-shrink-0">
+                <h2 className="text-xl font-bold mb-6 border-b pb-2">Topics</h2>
+                <ul className="space-y-3">
+                    {topics.map(topic => (
+                        <li key={topic}>
+                            <button
+                                onClick={() => setSelectedTopic(topic)}
+                                className={`text-left w-full transition-colors duration-200 ${selectedTopic === topic
+                                        ? "font-bold text-black"
+                                        : "text-gray-500 hover:text-black"
+                                    }`}
+                            >
+                                {topic}
+                            </button>
+                        </li>
+                    ))}
+                </ul>
+            </aside>
+
+            {/* Main Content */}
+            <div className="flex-1 min-w-0">
+                <h1 className="text-4xl font-extrabold mb-12 border-b pb-4">
+                    {selectedTopic === "All" ? "All Posts" : selectedTopic}
+                </h1>
+                <div className="space-y-12">
+                    {filteredPosts.length > 0 ? (
+                        filteredPosts.map((post) => (
+                            <div key={post.slug} className="group">
+                                <Link to={`/blog/${post.slug}`} className="block">
+                                    <div className="flex items-center gap-3 mb-2">
+                                        <span className="text-xs font-semibold px-2.5 py-0.5 rounded bg-gray-100 text-gray-800">
+                                            {post.topic}
+                                        </span>
+                                        <span className="text-sm text-gray-500">{post.date}</span>
+                                    </div>
+                                    <h2 className="text-2xl font-bold mb-3 group-hover:underline decoration-2 underline-offset-4">
+                                        {post.title}
+                                    </h2>
+                                    <p className="text-gray-600 leading-relaxed">
+                                        {post.description}
+                                    </p>
+                                </Link>
+                            </div>
+                        ))
+                    ) : (
+                        <p className="text-gray-500">No posts found in this topic.</p>
+                    )}
+                </div>
             </div>
         </div>
     );

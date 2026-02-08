@@ -4,7 +4,7 @@ import Section from "./Section";
 
 const Career = () => {
     return (
-        <Section title="Career" id="career" className="bg-gray-50">
+        <Section title="Career" id="career">
             {career.map((job, index) => (
                 <div key={index} className="career-item">
                     <div className="career-header">

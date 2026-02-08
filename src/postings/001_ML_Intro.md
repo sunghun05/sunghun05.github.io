@@ -2,7 +2,8 @@
 title: "머신러닝 이론 강의 정리 - Intro"
 date: "2025-10-30"
 description: "머신러닝 이론 강의를 정리한 내용입니다."
-slug: "my-first-blog-post"
+slug: "ml-theory-intro"
+topic: "Machine Learning"
 ---
 
 머신러닝 이론 포스팅은 Stanford CS229 (Andrew Ng)과 대학교 강의를 기반으로 정리합니다.
@@ -26,27 +27,24 @@ slug: "my-first-blog-post"
 
 지도학습은 말 그대로, 학습 과정에서 컴퓨터에게 데이터에 레이블(Label)을 포함하는 방식이다. 레이블이란, 예를 들어, 어떠한 예측 프로그램을 만든다고 하면, 주어진 어떤 데이터를 통하여 예측값을 추론한다. 이때, 정답 예측값이 레이블이다.
 
-[##_Image|kage@EnyGW/dJMcaaKRfCA/AAAAAAAAAAAAAAAAAAAAAPoDNEkgZ-f3-OMlNgBBcrE8V9Scg_RGxGYr56mrreEd/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1772290799&amp;allow_ip=&amp;allow_referer=&amp;signature=WSyhh%2BbFpKDTrdsQq4UYeS1BDyk%3D|CDM|1.3|{"originWidth":708,"originHeight":576,"style":"alignCenter"}_##]
+![위 사진은 지도학습 과정에서 컴퓨터에게 주는 데이터(평 수에 따른 집 가격)를 시각화한 모습이다. (Regression, 회귀)](/images/ML/1_Intro/linear_regression_dataset.png)
 
-위 사진은 지도학습 과정에서 컴퓨터에게 주는 데이터(평 수에 따른 집 가격)를 시각화한 모습이다. (Regression, 회귀)
+![위 사진은 지도학습 과정에서 이진 분류를 위한 데이터를 시각화한 모습이다. (classification, 분류)](/images/ML/1_Intro/classification.png)
 
-[##_Image|kage@bPwdKB/dJMcabWMttn/AAAAAAAAAAAAAAAAAAAAAKxGo6J_gB5hgWkcivKDeUwLDnXjVVTj2kZ0SVhvYeZu/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1772290799&amp;allow_ip=&amp;allow_referer=&amp;signature=3HKtEF4qMWCyf755A5tXtKlILY0%3D|CDM|1.3|{"originWidth":636,"originHeight":284,"style":"alignCenter"}_##]
-
-위 사진은 지도학습 과정에서 이진 분류를 위한 데이터를 시각화한 모습이다. (classification, 분류)
 
 ### 표기
 
-[##_Image|kage@bdOTor/dJMcadNPxMP/AAAAAAAAAAAAAAAAAAAAANFNfE_aaxc2hPCX39e4241gi_5Aa9doYn5n09RiKVXM/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1772290799&amp;allow_ip=&amp;allow_referer=&amp;signature=QNykonR4%2FNB4lyo3nBWFTPoD7Ps%3D|CDM|1.3|{"originWidth":628,"originHeight":576,"style":"alignCenter"}_##]
+![](/images/ML/1_Intro/hypothesis_func.png)
 
   
 지도학습에서의 Learning은 학습 데이터(data set) (x,y)에 대하여, x->y, x를 통하여 y를 예측하는 방식으로 진행이 된다. 조금 더 구체적으로 말하자면, 학습 데이터(training set)을 학습 알고리즘에 투입하여 가설 함수(hypothesis function, h)를 결정하여 새로운 데이터 x에 대하여 레이블을 예측하는 방식이다. (아래 그림 참조)  
 데이터셋의 표기방법은 다음과 같다.
 
 $$  
-Training\\ example: (x^{(i)}, y^{(i)})\\\\  
-Training\\ data set: \\{(x^{(i)}, y^{(i)}); i=1,...,m\\}  
+Training\ example: (x^{(i)}, y^{(i)})\\  
+Training\ data\ set:\ {(x^{(i)}, y^{(i)}); i=1,...,m}  
 $$
 
-이때, y는 입력 x에 대한 정답(label)을 의미하고, $\\hat{y}$은 x를 통하여 예측한 y를 의미한다.
+이때, y는 입력 x에 대한 정답(label)을 의미하고, $\hat{y}$은 x를 통하여 예측한 y를 의미한다.
 
 

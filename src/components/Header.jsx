@@ -22,7 +22,7 @@ const Header = () => {
         <>
             {isHome ? (
                 <>
-                    {["about", "career", "papers", "projects"].map((section) => (
+                    {["about", "research", "career", "papers", "projects"].map((section) => (
                         <button
                             key={section}
                             onClick={() => handleScroll(section)}

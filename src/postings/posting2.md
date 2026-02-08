@@ -3,6 +3,7 @@ title: "My First Blog Post"
 date: "2024-05-20"
 description: "This is a sample blog post to demonstrate the markdown rendering capabilities."
 slug: "my-first-blog-post"
+topic: "General"
 ---
 
 # Hello World
