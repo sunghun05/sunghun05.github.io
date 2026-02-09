@@ -32,12 +32,26 @@ const Blog = () => {
             const { data } = parseFrontmatter(text);
             return {
                 ...data,
+                pinned: data.pinned === "true", // Parse string to boolean
                 path: path,
                 topic: data.topic || "Uncategorized"
             };
         });
 
-        setPosts(loadedPosts.sort((a, b) => new Date(b.date) - new Date(a.date)));
+        setPosts(loadedPosts.sort((a, b) => {
+            // Pinned check (Pinned first)
+            if (a.pinned && !b.pinned) return -1;
+            if (!a.pinned && b.pinned) return 1;
+
+            // Date check (Descending)
+            const dateA = new Date(a.date);
+            const dateB = new Date(b.date);
+            if (dateA > dateB) return -1;
+            if (dateA < dateB) return 1;
+
+            // Path check (Descending)
+            return b.path.localeCompare(a.path);
+        }));
     }, []);
 
     const topics = ["All", ...new Set(posts.map(post => post.topic))];
@@ -56,8 +70,8 @@ const Blog = () => {
                             <button
                                 onClick={() => setSelectedTopic(topic)}
                                 className={`text-left w-full transition-colors duration-200 ${selectedTopic === topic
-                                        ? "font-bold text-black"
-                                        : "text-gray-500 hover:text-black"
+                                    ? "font-bold text-black"
+                                    : "text-gray-500 hover:text-black"
                                     }`}
                             >
                                 {topic}
@@ -75,9 +89,12 @@ const Blog = () => {
                 <div className="space-y-12">
                     {filteredPosts.length > 0 ? (
                         filteredPosts.map((post) => (
-                            <div key={post.slug} className="group">
+                            <div key={post.slug} className="group relative">
                                 <Link to={`/blog/${post.slug}`} className="block">
                                     <div className="flex items-center gap-3 mb-2">
+                                        {post.pinned && (
+                                            <span className="text-red-500 text-lg" title="Pinned Post">📌</span>
+                                        )}
                                         <span className="text-xs font-semibold px-2.5 py-0.5 rounded bg-gray-100 text-gray-800">
                                             {post.topic}
                                         </span>

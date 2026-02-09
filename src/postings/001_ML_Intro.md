@@ -4,6 +4,7 @@ date: "2025-10-30"
 description: "머신러닝 이론 강의를 정리한 내용입니다."
 slug: "ml-theory-intro"
 topic: "Machine Learning"
+pinned: false
 ---
 
 머신러닝 이론 포스팅은 Stanford CS229 (Andrew Ng)과 대학교 강의를 기반으로 정리합니다.
@@ -27,9 +28,11 @@ topic: "Machine Learning"
 
 지도학습은 말 그대로, 학습 과정에서 컴퓨터에게 데이터에 레이블(Label)을 포함하는 방식이다. 레이블이란, 예를 들어, 어떠한 예측 프로그램을 만든다고 하면, 주어진 어떤 데이터를 통하여 예측값을 추론한다. 이때, 정답 예측값이 레이블이다.
 
-![위 사진은 지도학습 과정에서 컴퓨터에게 주는 데이터(평 수에 따른 집 가격)를 시각화한 모습이다. (Regression, 회귀)](/images/ML/1_Intro/linear_regression_dataset.png)
+![지도학습 과정에서 컴퓨터에게 주는 데이터(평 수에 따른 집 가격)를 시각화한 모습(Regression, 회귀)](/images/ML/1_Intro/linear_regression_dataset.png)
+위 사진은 지도학습 과정에서 컴퓨터에게 주는 데이터(평 수에 따른 집 가격)를 시각화한 모습이다. (Regression, 회귀)
 
-![위 사진은 지도학습 과정에서 이진 분류를 위한 데이터를 시각화한 모습이다. (classification, 분류)](/images/ML/1_Intro/classification.png)
+![지도학습 과정에서 이진 분류를 위한 데이터를 시각화한 모습(classification, 분류)](/images/ML/1_Intro/classification.png)
+위 사진은 지도학습 과정에서 이진 분류를 위한 데이터를 시각화한 모습이다. (classification, 분류)
 
 
 ### 표기
