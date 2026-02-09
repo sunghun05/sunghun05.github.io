@@ -4,7 +4,10 @@ export const profile = {
   bio: "Researching, Studying, and Building on Edge AI and Software Engineering.",
   email: "sunghun051107@gmail.com",
 };
-export const about = "I am an undergraduate student at Soonchunhyang University, majoring in Computer Software Engineering. I have a strong passion for researching efficient AI models for edge devices. Currently, I'm studying Computer Vision Models using edge devices and NPUs.\n\n저는 순천향대학교 컴퓨터 소프트웨어 공학과 학부생입니다. 엣지 디바이스에서 효율적인 AI 모델을 연구하는 데 큰 열정을 가지고 있습니다. 현재는 엣지 디바이스와 NPU를 활용한 컴퓨터 비전 모델을 연구하고 있습니다.";
+export const about = {
+  en: "I am an undergraduate student at Soonchunhyang University, majoring in Computer Software Engineering. I have a strong passion for researching efficient AI models for edge devices. Currently, I'm studying Computer Vision Models using edge devices and NPUs.",
+  ko: "저는 순천향대학교 컴퓨터 소프트웨어 공학과 학부생입니다. 엣지 디바이스에서 효율적인 AI 모델을 연구하는 데 큰 열정을 가지고 있습니다. 현재는 엣지 디바이스와 NPU를 활용한 컴퓨터 비전 모델을 연구하고 있습니다."
+};
 
 export const researchInterests = [
   "Edge AI",
@@ -41,7 +44,7 @@ export const projects = [
   {
     title: "LabOps Frontend",
     description: "Developed a frontend for LabOps, a platform for managing laboratory AI development.",
-    techStack: ["React", "TypeScript", "CSS"],
+    techStack: ["React", "JavaScript", "CSS"],
     link: "#",
   },
   {

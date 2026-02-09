@@ -251,4 +251,9 @@
   .footer {
     @apply py-12 text-center text-gray-400 text-sm bg-gray-900;
   }
+
+  /* KaTeX Math Scroll */
+  .katex-display {
+    @apply overflow-x-auto overflow-y-hidden py-2;
+  }
 }
