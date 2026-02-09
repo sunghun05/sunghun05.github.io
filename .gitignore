@@ -1,0 +1,37 @@
+# Logs (로그 파일들)
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Dependencies (라이브러리 설치 폴더 - 용량이 매우 크므로 절대 올리지 않음)
+node_modules
+.pnpm-store
+
+# Build Output (빌드 결과물)
+# 주의: GitHub Pages에 배포하더라도, '소스 코드' 브랜치(main)에는 dist를 올리지 않습니다.
+# 배포는 gh-pages 브랜치나 GitHub Actions가 담당합니다.
+dist
+dist-ssr
+
+# Editor directories and files (에디터 설정 파일 및 OS 시스템 파일)
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs
+*.njsproj
+*.sln
+*.sw?
+
+# Environment variables (환경 변수 - API 키 등 보안 정보가 있으므로 절대 올리지 않음)
+.env
+.env.*
+!.env.example
+
+# Testing
+coverage
