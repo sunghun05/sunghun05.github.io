@@ -59,3 +59,11 @@ export const social = {
   github: "https://github.com/sunghun05",
   blog: "https://sunghun05.github.io",
 };
+
+export const profileTable = [
+  { label: "Role", value: profile.title },
+  { label: "Email", value: profile.email, type: "email" },
+  { label: "Website", value: social.blog, type: "link", text: "Official Website" },
+  { label: "Blog", value: "/blog", type: "internal-link", text: "Visit Blog" },
+  { label: "GitHub", value: social.github, type: "link", text: "GitHub Profile" },
+];

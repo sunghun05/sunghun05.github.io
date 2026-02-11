@@ -1,0 +1,235 @@
+/* Retro Academic Style */
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@400;700&display=swap');
+
+.portfolio-layout {
+    font-family: 'Crimson Text', serif;
+    color: #333;
+    line-height: 1.7;
+    max-width: 100%;
+    background-color: #fdfdfd;
+    padding: 40px;
+    font-size: 1.1rem;
+}
+
+.portfolio-title {
+    font-family: 'Crimson Text', serif;
+    font-size: 2.5rem;
+    border-bottom: 2px solid #333;
+    margin-bottom: 1em;
+    padding-bottom: 0.2em;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.sidebar-column {
+    width: 300px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Sidebar Component */
+.sidebar-box {
+    width: 100%;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.infobox {
+    border: 4px double #ccc;
+    background-color: #fff;
+    padding: 15px;
+    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.05);
+}
+
+.infobox-title {
+    text-align: center;
+    font-weight: bold;
+    padding: 10px 0;
+    font-size: 1.4rem;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+    font-family: 'Crimson Text', serif;
+}
+
+.infobox-image {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.infobox-table {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.infobox-row {
+    display: table-row;
+    border-bottom: 1px dotted #eee;
+}
+
+.infobox-row:last-child {
+    border-bottom: none;
+}
+
+.infobox-label {
+    display: table-cell;
+    font-weight: 600;
+    padding: 8px 10px 8px 0;
+    vertical-align: top;
+    text-align: left;
+    color: #555;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.9rem;
+    width: 30%;
+}
+
+.infobox-value {
+    display: table-cell;
+    padding: 8px 0;
+    vertical-align: top;
+    text-align: left;
+}
+
+/* Typography & Elements */
+.section-header {
+    font-family: 'Crimson Text', serif;
+    font-size: 1.8rem;
+    border-bottom: 1px solid #aaa;
+    margin-top: 1.5em;
+    margin-bottom: 0.8em;
+    padding-bottom: 0.1em;
+    font-weight: 600;
+    color: #111;
+}
+
+.text-link {
+    color: #800000;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+}
+
+.text-link:visited {
+    color: #500000;
+}
+
+.text-link:hover {
+    background-color: #fff0f0;
+    text-decoration: none;
+}
+
+.bullet-list {
+    list-style-type: square;
+    margin-left: 1.5em;
+    margin-bottom: 1em;
+    padding-left: 0;
+}
+
+.bullet-list li {
+    margin-bottom: 0.6em;
+}
+
+/* TOC */
+.toc-container {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 15px 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.toc-header {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    color: #666;
+}
+
+.toc-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.toc-item {
+    margin-bottom: 8px;
+    border-bottom: 1px dotted #eaeaea;
+    padding-bottom: 4px;
+}
+
+.toc-item:last-child {
+    border-bottom: none;
+}
+
+.toc-number {
+    color: #888;
+    margin-right: 8px;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.85rem;
+}
+
+.intro-text {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    font-style: italic;
+    color: #444;
+}
+
+.sidebar-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 12px;
+    background-color: #f9f9f9;
+    border: 4px double #ccc;
+    /* Match sidebar border */
+    color: #333;
+    font-family: 'Crimson Text', serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: background-color 0.2s, color 0.2s;
+    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar-button:hover {
+    background-color: #333;
+    color: #fff;
+    border-color: #333;
+}
+
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column;
+    }
+
+    .sidebar-column {
+        width: 100%;
+        order: -1;
+    }
+
+    .portfolio-layout {
+        padding: 20px;
+    }
+}

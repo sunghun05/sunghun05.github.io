@@ -1,9 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@400;700&display=swap');
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
 @theme {
   --font-sans: "Inter", sans-serif;
+  --font-serif: "Crimson Text", serif;
+  --font-lato: "Lato", sans-serif;
+  --animate-fade-in-up: fadeInUp 0.8s ease-out forwards;
   --animate-fade-in-up: fadeInUp 0.8s ease-out forwards;
 
   @keyframes fadeInUp {
@@ -194,7 +198,7 @@
   }
 
   .project-desc {
-    @apply text-gray-600 text-sm mb-4 h-12 overflow-hidden;
+    @apply text-gray-600 text-sm mb-4;
   }
 
   .tech-stack {
@@ -249,7 +253,7 @@
 
   /* Footer */
   .footer {
-    @apply py-12 text-center text-gray-400 text-sm bg-gray-900;
+    @apply py-12 text-center text-gray-600 text-sm bg-gray-200;
   }
 
   /* KaTeX Math Scroll */

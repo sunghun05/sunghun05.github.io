@@ -60,58 +60,67 @@ const Blog = () => {
         : posts.filter(post => post.topic === selectedTopic);
 
     return (
-        <div className="pt-32 pb-16 px-6 max-w-6xl mx-auto flex flex-col md:flex-row gap-12">
-            {/* Sidebar */}
-            <aside className="w-full md:w-64 flex-shrink-0">
-                <h2 className="text-xl font-bold mb-6 border-b pb-2">Topics</h2>
-                <ul className="space-y-3">
-                    {topics.map(topic => (
-                        <li key={topic}>
-                            <button
-                                onClick={() => setSelectedTopic(topic)}
-                                className={`text-left w-full transition-colors duration-200 ${selectedTopic === topic
-                                    ? "font-bold text-black"
-                                    : "text-gray-500 hover:text-black"
-                                    }`}
-                            >
-                                {topic}
-                            </button>
-                        </li>
-                    ))}
-                </ul>
-            </aside>
+        <div className="pt-10 pb-16 px-6 max-w-6xl mx-auto">
+            <Link to="/" className="inline-flex items-center text-gray-500 hover:text-black mb-8 transition-colors gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M19 12H5m7-7l-7 7 7 7" />
+                </svg>
+                Back to Portfolio
+            </Link>
 
-            {/* Main Content */}
-            <div className="flex-1 min-w-0">
-                <h1 className="text-4xl font-extrabold mb-12 border-b pb-4">
-                    {selectedTopic === "All" ? "All Posts" : selectedTopic}
-                </h1>
-                <div className="space-y-12">
-                    {filteredPosts.length > 0 ? (
-                        filteredPosts.map((post) => (
-                            <div key={post.slug} className="group relative">
-                                <Link to={`/blog/${post.slug}`} className="block">
-                                    <div className="flex items-center gap-3 mb-2">
-                                        {post.pinned && (
-                                            <span className="text-red-500 text-lg" title="Pinned Post">📌</span>
-                                        )}
-                                        <span className="text-xs font-semibold px-2.5 py-0.5 rounded bg-gray-100 text-gray-800">
-                                            {post.topic}
-                                        </span>
-                                        <span className="text-sm text-gray-500">{post.date}</span>
-                                    </div>
-                                    <h2 className="text-2xl font-bold mb-3 group-hover:underline decoration-2 underline-offset-4">
-                                        {post.title}
-                                    </h2>
-                                    <p className="text-gray-600 leading-relaxed">
-                                        {post.description}
-                                    </p>
-                                </Link>
-                            </div>
-                        ))
-                    ) : (
-                        <p className="text-gray-500">No posts found in this topic.</p>
-                    )}
+            <div className="flex flex-col md:flex-row gap-12">
+                {/* Sidebar */}
+                <aside className="w-full md:w-64 flex-shrink-0">
+                    <h2 className="text-xl font-bold mb-6 border-b pb-2">Topics</h2>
+                    <ul className="space-y-3">
+                        {topics.map(topic => (
+                            <li key={topic}>
+                                <button
+                                    onClick={() => setSelectedTopic(topic)}
+                                    className={`text-left w-full transition-colors duration-200 ${selectedTopic === topic
+                                        ? "font-bold text-black"
+                                        : "text-gray-500 hover:text-black"
+                                        }`}
+                                >
+                                    {topic}
+                                </button>
+                            </li>
+                        ))}
+                    </ul>
+                </aside>
+
+                {/* Main Content */}
+                <div className="flex-1 min-w-0">
+                    <h1 className="text-4xl font-extrabold mb-12 border-b pb-4">
+                        {selectedTopic === "All" ? "All Posts" : selectedTopic}
+                    </h1>
+                    <div className="space-y-12">
+                        {filteredPosts.length > 0 ? (
+                            filteredPosts.map((post) => (
+                                <div key={post.slug} className="group relative">
+                                    <Link to={`/blog/${post.slug}`} className="block">
+                                        <div className="flex items-center gap-3 mb-2">
+                                            {post.pinned && (
+                                                <span className="text-red-500 text-lg" title="Pinned Post">📌</span>
+                                            )}
+                                            <span className="text-xs font-semibold px-2.5 py-0.5 rounded bg-gray-100 text-gray-800">
+                                                {post.topic}
+                                            </span>
+                                            <span className="text-sm text-gray-500">{post.date}</span>
+                                        </div>
+                                        <h2 className="text-2xl font-bold mb-3 group-hover:underline decoration-2 underline-offset-4">
+                                            {post.title}
+                                        </h2>
+                                        <p className="text-gray-600 leading-relaxed">
+                                            {post.description}
+                                        </p>
+                                    </Link>
+                                </div>
+                            ))
+                        ) : (
+                            <p className="text-gray-500">No posts found in this topic.</p>
+                        )}
+                    </div>
                 </div>
             </div>
         </div>
