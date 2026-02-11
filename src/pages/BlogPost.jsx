@@ -66,6 +66,9 @@ const BlogPost = () => {
             >
                 {content}
             </ReactMarkdown>
+            <Link to="/blog" className="back-link">
+                &larr; Back to Blog
+            </Link>
         </article>
     );
 };
