@@ -620,7 +620,7 @@ $$
 \\end{aligned}
 $$
 
-겉보기에는, LMS와 동일한 Update Rule을 가진 것 처럼 보인다. 하지만, $h_\\theta$가 여기선 비선형함수이기 때문에, 다른 알고리즘임을 알아야 한다.
+겉보기에는, LMS와 동일한 Update Rule을 가진 것 처럼 보인다. 하지만, $h_\\theta$가 여기선 비선형함수이기 때문에, 다른 알고리즘임을 알아야 한다는 점을 참고하자.
 
 `,Kp=`---
 title: "머신러닝 이론 - 3.1. Perceptron Learning & Multi-class Classification"
