@@ -457,7 +457,7 @@ date: "2026-02-15"
 description: "머신러닝 이론 강의를 정리한 내용입니다."
 slug: "Locally weighted linear regression"
 topic: "Machine Learning"
-pinned: true
+pinned: false
 ---
 
 머신러닝 이론 포스팅은 Stanford CS229 (Andrew Ng)과 대학교 강의를 기반으로 정리합니다.  
