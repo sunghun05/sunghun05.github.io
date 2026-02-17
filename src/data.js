@@ -50,7 +50,7 @@ export const projects = [
   {
     title: "Envac Cleanet",
     description: "Development of a smart trash can and illegal dumping detection algorithm for smart cities.",
-    techStack: ["Hailo-8", "Linux", "Python", "PyTorch"],
+    techStack: ["Hailo", "Linux", "Python", "PyTorch"],
     link: "#",
   },
 ];

@@ -4,7 +4,7 @@ date: "2026-02-02"
 description: "머신러닝 이론 강의를 정리한 내용입니다."
 slug: "maximum_likelihood_estimation"
 topic: "Machine Learning"
-pinned: true
+pinned: false
 ---
 
 
@@ -69,6 +69,7 @@ $$
 
 지금까지 정리한 방법을 최대우도법(Maximum Likelihood Estimation, MLE)라고 한다.  
 우도함수의 최댓값을 찾는 것으로 학습 알고리즘을 구성할 수도 있다.
+우도함수의 최댓값을 찾는 문제는 다음에 설명한다. (Logistic Regression 에서)
 
 ## 우도함수 Likelihood Function (참고)
 

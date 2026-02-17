@@ -1,5 +1,5 @@
 ---
-title: "머신러닝 이론 - 2.1경사 하강법 (Gradient Descent)"
+title: "머신러닝 이론 - 2.1 경사 하강법 (Gradient Descent)"
 date: "2026-01-25"
 description: "머신러닝 이론 강의를 정리한 내용입니다."
 slug: "gradient_descent"

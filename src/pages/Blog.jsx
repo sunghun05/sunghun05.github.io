@@ -61,12 +61,15 @@ const Blog = () => {
 
     return (
         <div className="pt-10 pb-16 px-6 max-w-6xl mx-auto">
-            <Link to="/" className="inline-flex items-center text-gray-500 hover:text-black mb-8 transition-colors gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M19 12H5m7-7l-7 7 7 7" />
-                </svg>
-                Back to Portfolio
-            </Link>
+            <header className="flex flex-col md:flex-row justify-between items-center mb-12 border-b border-gray-200 pb-6">
+                <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 md:mb-0">Sunghun Wang의 블로그</h1>
+                <Link to="/" className="group inline-flex items-center px-5 py-2.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-full hover:bg-gray-50 hover:text-black transition-all shadow-sm">
+                    Visit Portfolio
+                    <svg xmlns="http://www.w3.org/2000/svg" className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </Link>
+            </header>
 
             <div className="flex flex-col md:flex-row gap-12">
                 {/* Sidebar */}
