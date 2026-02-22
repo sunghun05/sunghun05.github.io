@@ -1,71 +1,84 @@
 import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
-import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Introduction from "./components/Introduction";
-import Career from "./components/Career";
-import Papers from "./components/Papers";
-import Projects from "./components/Projects";
 import About from "./components/About";
+import Career from "./components/Career";
+import Projects from "./components/Projects";
 import ResearchInterests from "./components/ResearchInterests";
+import Awards from "./components/Awards";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
-import WikiSidebar from "./components/WikiSidebar";
+import { profile, social } from "./data";
 import "./portfolio.css";
 
 const Portfolio = () => {
   return (
-    <div className="font-serif text-[#333] leading-relaxed max-w-full bg-[#fdfdfd] p-5 md:p-10 text-lg">
-      <h1 className="font-serif text-4xl border-b-2 border-[#333] mb-4 pb-1 font-bold tracking-tight">Sunghun Wang</h1>
-      <div className="flex flex-col md:flex-row items-start gap-10">
+    <div className="min-h-screen bg-[#eaecef] font-[Inter,sans-serif] text-[#333] text-base leading-relaxed">
+      {/* ── Page column ── */}
+      <div className="max-w-[860px] mx-auto bg-white px-8 py-10 md:px-14 md:py-14 shadow-sm">
 
-        <div className="w-full md:w-[300px] flex-shrink-0 flex flex-col gap-8 order-first">
-
-          <div id="toc" className="bg-[#f9f9f9] border border-gray-200 p-5 w-full box-border">
-            <div className="text-center font-bold mb-2 font-lato uppercase text-xs tracking-wide text-gray-500">Contents</div>
-            <ul className="list-none p-0 m-0">
-              <li className="mb-2 border-b border-dotted border-gray-200 pb-1 last:border-b-0">
-                <span className="text-gray-500 mr-2 font-lato text-sm">1</span> <a href="#about" className="text-[#800000] underline decoration-1 underline-offset-2 hover:bg-[#fff0f0] hover:no-underline">About</a>
-              </li>
-              <li className="mb-2 border-b border-dotted border-gray-200 pb-1 last:border-b-0">
-                <span className="text-gray-500 mr-2 font-lato text-sm">2</span> <a href="#interests" className="text-[#800000] underline decoration-1 underline-offset-2 hover:bg-[#fff0f0] hover:no-underline">Research Interests</a>
-              </li>
-              <li className="mb-2 border-b border-dotted border-gray-200 pb-1 last:border-b-0">
-                <span className="text-gray-500 mr-2 font-lato text-sm">3</span> <a href="#career" className="text-[#800000] underline decoration-1 underline-offset-2 hover:bg-[#fff0f0] hover:no-underline">Career</a>
-              </li>
-              <li className="mb-2 border-b border-dotted border-gray-200 pb-1 last:border-b-0">
-                <span className="text-gray-500 mr-2 font-lato text-sm">4</span> <a href="#projects" className="text-[#800000] underline decoration-1 underline-offset-2 hover:bg-[#fff0f0] hover:no-underline">Projects</a>
-              </li>
-            </ul>
+        {/* ── Hero ── */}
+        <div className="flex flex-col md:flex-row items-center md:items-start gap-8 mb-12">
+          {/* Circular photo — left */}
+          <div className="w-36 h-36 rounded-full overflow-hidden border-2 border-[#ddd] flex-shrink-0">
+            <img
+              src="/images/ID_photo/photo.JPG"
+              alt="Profile"
+              className="w-full h-full object-cover"
+            />
           </div>
 
-          <WikiSidebar />
+          {/* Info — right */}
+          <div className="flex flex-col justify-center text-left">
+            {/* Name */}
+            <h1 className="font-['Crimson_Text',serif] text-4xl font-bold text-[#111] mb-1">
+              {profile.name}
+            </h1>
 
+            {/* Affiliation */}
+            <p className="text-[#8b0000] font-semibold text-lg mb-3">
+              {profile.title}
+            </p>
 
-          {/* Inserted Blog Link */}
-          <Link to="/blog" className="sidebar-button flex items-center justify-center gap-2 p-3 bg-[#800000] text-white rounded-md shadow-md hover:bg-[#a00000] transition-colors duration-200 text-lg font-bold">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-            </svg>
-            Visit Blog
-          </Link>
+            {/* Short bio */}
+            <p className="text-[#555] text-base mb-5">{profile.bio}</p>
+
+            {/* Links row */}
+            <div className="flex flex-wrap gap-4 text-sm">
+              {profile.email && (
+                <a
+                  href={`mailto:${profile.email}`}
+                  className="text-[#8b0000] underline underline-offset-2 hover:bg-[#fff0f0] px-1 transition-colors"
+                >
+                  Email
+                </a>
+              )}
+              {social.github && (
+                <a
+                  href={social.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#8b0000] underline underline-offset-2 hover:bg-[#fff0f0] px-1 transition-colors"
+                >
+                  GitHub
+                </a>
+              )}
+              <Link
+                to="/blog"
+                className="text-[#8b0000] underline underline-offset-2 hover:bg-[#fff0f0] px-1 transition-colors"
+              >
+                Blog
+              </Link>
+            </div>
+          </div>
         </div>
 
-        <main className="flex-1 min-w-0">
-          <div className="text-xl mb-8 italic text-[#444]">
-            <p style={{ marginBottom: "1em" }}>
-              I am a Computer Software Undergraduate Student at Soonchunhyang University,
-              dedicated to researching and building efficient AI models for edge devices.
-            </p>
-          </div>
-
-          <About />
-          <ResearchInterests />
-          <Career />
-          <Projects />
-        </main>
-
+        {/* ── Sections ── */}
+        <About />
+        <ResearchInterests />
+        <Career />
+        <Projects />
+        <Awards />
       </div>
     </div>
   );
@@ -73,9 +86,8 @@ const Portfolio = () => {
 
 function App() {
   return (
-    <div className="app-container">
-
-      <main className="flex-grow w-full max-w-7xl mx-auto bg-white shadow-sm overflow-hidden">
+    <div className="flex flex-col min-h-screen">
+      <main className="flex-grow">
         <Routes>
           <Route path="/" element={<Portfolio />} />
           <Route path="/blog" element={<Blog />} />

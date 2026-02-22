@@ -9,8 +9,8 @@ const WikiSidebar = () => {
                 <div className="infobox-title">{profile.name}</div>
                 {/* Image Placeholder - simplified */}
                 <div className="infobox-image">
-                    <div style={{ width: "100%", height: "220px", backgroundColor: "#f0f0f0", display: "flex", alignItems: "center", justifyContent: "center", color: "#888", border: "1px solid #ddd", fontStyle: "italic" }}>
-                        [Profile Image]
+                    <div style={{ width: "100%", height: "280px", backgroundColor: "#f0f0f0", display: "flex", alignItems: "center", justifyContent: "center", border: "1px solid #ddd", overflow: "hidden" }}>
+                        <img src="/images/ID_photo/photo.JPG" alt="Profile" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                     </div>
                 </div>
                 <div className="infobox-table">

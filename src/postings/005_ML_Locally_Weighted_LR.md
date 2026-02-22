@@ -53,6 +53,10 @@ $$
 같은 x축에 w그래프와 데이터셋을 나타낸 이미지이다. 점선의 범위 안의 입력이 들어오면, 해당 범위 안에서 선형회귀가 진행됨을 알 수 있다.
 W의 모양이 가우시안 그래프의 형태와 유사하지만, 가우시안 분포와는 다른 함수라는 것을 알아두자.
 
+$\tau$(bandwidth)의 경우 다음과 같은 성질이 있다.
+- $\tau$  클수록 -> oversmoothing
+- $\tau$  작을수록 -> 결과가 들쭉날쭉해짐
+
 LMR 알고리즘은 Non-Parametic 알고리즘이다.
 
 ## Parametic, None-Parametic Algorithm
