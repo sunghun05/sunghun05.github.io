@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import ReactMarkdown from "react-markdown";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
@@ -53,8 +54,43 @@ const BlogPost = () => {
 
     if (!content) return <div className="pt-32 text-center">Loading...</div>;
 
+    const SITE_URL = "https://sunghun05.github.io";
+    const postUrl = `${SITE_URL}/blog/${slug}`;
+    const postTitle = meta.title ? `${meta.title} — Sunghun Wang` : "Sunghun Wang";
+    const postDescription = meta.description || "A blog post by Sunghun Wang on AI and software engineering.";
+
     return (
         <article className="blog-post-article">
+            <Helmet>
+                <title>{postTitle}</title>
+                <meta name="description" content={postDescription} />
+                <link rel="canonical" href={postUrl} />
+
+                {/* Open Graph — Article */}
+                <meta property="og:type" content="article" />
+                <meta property="og:title" content={postTitle} />
+                <meta property="og:description" content={postDescription} />
+                <meta property="og:url" content={postUrl} />
+                {meta.date && <meta property="article:published_time" content={new Date(meta.date).toISOString()} />}
+
+                {/* Twitter */}
+                <meta name="twitter:card" content="summary" />
+                <meta name="twitter:title" content={postTitle} />
+                <meta name="twitter:description" content={postDescription} />
+
+                {/* Article schema.org */}
+                <script type="application/ld+json">{JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "BlogPosting",
+                    "headline": meta.title || "",
+                    "description": postDescription,
+                    "url": postUrl,
+                    "datePublished": meta.date ? new Date(meta.date).toISOString() : undefined,
+                    "author": { "@type": "Person", "name": "Sunghun Wang", "url": SITE_URL + "/" },
+                    "publisher": { "@type": "Person", "name": "Sunghun Wang" },
+                })}</script>
+            </Helmet>
+
             <Link to="/blog" className="back-link">
                 &larr; Back to Blog
             </Link>

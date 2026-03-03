@@ -3,13 +3,11 @@ import { researchInterests } from "../data";
 
 const ResearchInterests = () => {
     return (
-        <section id="interests" className="border-t border-[#ccc] pt-6 mb-8">
-            <h2 className="font-['Crimson_Text',serif] text-2xl font-semibold text-[#8b0000] mb-3">
-                Research Interests
-            </h2>
-            <ul className="list-disc list-inside space-y-1 text-[#333]">
+        <section id="interests" className="section">
+            <h2 className="section-title">Research Interests</h2>
+            <ul className="interest-list">
                 {researchInterests.map((interest, index) => (
-                    <li key={index}>{interest}</li>
+                    <li key={index} className="interest-tag">{interest}</li>
                 ))}
             </ul>
         </section>

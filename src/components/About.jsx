@@ -5,21 +5,19 @@ const About = () => {
     const [lang, setLang] = React.useState("en");
 
     return (
-        <section id="about" className="border-t border-[#ccc] pt-6 mb-8">
-            <h2 className="font-['Crimson_Text',serif] text-2xl font-semibold text-[#8b0000] mb-3 flex items-baseline gap-2">
+        <section id="about" className="section">
+            <h2 className="section-title">
                 About Me
-                <span className="text-sm font-normal text-[#555]">
-                    [
-                    <button
+                <span style={{ fontSize: "0.75rem", fontWeight: 400, marginLeft: "10px", color: "#475569" }}>
+                    [<button
                         onClick={() => setLang(lang === "en" ? "ko" : "en")}
-                        className="text-[#8b0000] underline cursor-pointer bg-transparent border-none p-0"
+                        className="lang-toggle-btn"
                     >
                         {lang === "en" ? "korean" : "english"}
-                    </button>
-                    ]
+                    </button>]
                 </span>
             </h2>
-            <p className="text-[#333] leading-7">{about[lang]}</p>
+            <p className="section-text">{about[lang]}</p>
         </section>
     );
 };

@@ -31,26 +31,21 @@ export const career = [
   }
 ];
 
-export const papers = [
-  {
-    title: "Paper Title 1",
-    conference: "Conference Name",
-    year: "2025",
-    link: "#",
-  }
-];
+
 
 export const projects = [
   {
     title: "LabOps Frontend",
     description: "Developed a frontend for LabOps, a platform for managing laboratory AI development.",
     techStack: ["React", "JavaScript", "CSS"],
+    duration: "Mar 2025 - Jun 2025",
     link: "#",
   },
   {
     title: "Envac Cleanet",
     description: "Development of a smart trash can and illegal dumping detection algorithm for smart cities.",
     techStack: ["Hailo", "Linux", "Python", "PyTorch"],
+    duration: "Jul 2025 - Present",
     link: "#",
   },
 ];

@@ -3,23 +3,19 @@ import { career } from "../data";
 
 const Career = () => {
     return (
-        <section id="career" className="border-t border-[#ccc] pt-6 mb-8">
-            <h2 className="font-['Crimson_Text',serif] text-2xl font-semibold text-[#8b0000] mb-4">
-                Career
-            </h2>
-            <div className="space-y-4">
+        <section id="career" className="section">
+            <h2 className="section-title">Career</h2>
+            <div>
                 {career.map((job, index) => (
-                    <div key={index} className="flex justify-between items-start gap-4">
+                    <div key={index} className="row-item">
                         <div>
-                            <p className="font-semibold text-[#111]">{job.role}</p>
-                            <p className="text-[#555]">{job.company}</p>
+                            <p className="row-title">{job.role}</p>
+                            <p className="row-subtitle">{job.company}</p>
                             {job.description && (
-                                <p className="text-sm text-[#666] mt-1">{job.description}</p>
+                                <p className="row-desc">{job.description}</p>
                             )}
                         </div>
-                        <span className="text-sm text-[#888] whitespace-nowrap flex-shrink-0">
-                            {job.duration}
-                        </span>
+                        <span className="row-date">{job.duration}</span>
                     </div>
                 ))}
             </div>

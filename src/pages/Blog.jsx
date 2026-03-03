@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
+import { Helmet } from "react-helmet-async";
 
 const parseFrontmatter = (text) => {
     const frontmatterRegex = /^---\s*([\s\S]*?)\s*---/;
@@ -61,6 +61,26 @@ const Blog = () => {
 
     return (
         <div className="pt-10 pb-16 px-6 max-w-6xl mx-auto">
+            <Helmet>
+                <title>Blog — Sunghun Wang</title>
+                <meta name="description" content="Articles on Edge AI, Computer Vision, Reinforcement Learning and Software Engineering by Sunghun Wang." />
+                <link rel="canonical" href="https://sunghun05.github.io/blog" />
+                <meta property="og:type" content="website" />
+                <meta property="og:title" content="Blog — Sunghun Wang" />
+                <meta property="og:description" content="Articles on Edge AI, Computer Vision, Reinforcement Learning and Software Engineering." />
+                <meta property="og:url" content="https://sunghun05.github.io/blog" />
+                <meta name="twitter:card" content="summary" />
+                <meta name="twitter:title" content="Blog — Sunghun Wang" />
+                <meta name="twitter:description" content="Articles on Edge AI, Computer Vision, Reinforcement Learning and Software Engineering." />
+                <script type="application/ld+json">{JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        { "@type": "ListItem", "position": 1, "name": "Portfolio", "item": "https://sunghun05.github.io/" },
+                        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://sunghun05.github.io/blog" },
+                    ]
+                })}</script>
+            </Helmet>
             <header className="flex flex-col md:flex-row justify-between items-center mb-12 border-b border-gray-200 pb-6">
                 <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 md:mb-0">Sunghun Wang의 블로그</h1>
                 <Link to="/" className="group inline-flex items-center px-5 py-2.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-full hover:bg-gray-50 hover:text-black transition-all shadow-sm">
