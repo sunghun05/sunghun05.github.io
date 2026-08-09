@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Researcher — Portfolio</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background: #ffffff;
+      color: #111111;
+      line-height: 1.65;
+      font-size: 16px;
+    }
+    .page {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3.5rem 1.5rem 4rem;
+    }
+    a { color: #111; text-decoration: underline; }
+    a:hover { color: #555; }
+
+    /* ===== Header ===== */
+    header {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+      padding-bottom: 1.8rem;
+      border-bottom: 1px solid #111;
+      margin-bottom: 2.5rem;
+    }
+    .profile-photo {
+      width: 130px;
+      height: 160px;
+      object-fit: cover;
+      border: 1px solid #999;
+      flex-shrink: 0;
+    }
+    h1 {
+      font-size: 1.9rem;
+      font-weight: normal;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.2rem;
+    }
+    .role {
+      font-style: italic;
+      color: #444;
+      margin-bottom: 0.8rem;
+    }
+    .bio { color: #333; margin-bottom: 0.9rem; }
+    .contact {
+      font-size: 0.92rem;
+      color: #333;
+    }
+    .contact span { white-space: nowrap; }
+    .contact .sep { color: #999; margin: 0 0.35rem; }
+
+    /* ===== Sections ===== */
+    section { margin-bottom: 2.6rem; }
+    h2 {
+      font-size: 1.15rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 0.3rem;
+      margin-bottom: 1.1rem;
+    }
+    .entry { margin-bottom: 1.3rem; }
+    .entry:last-child { margin-bottom: 0; }
+    .entry h3 {
+      font-size: 1rem;
+      font-weight: bold;
+    }
+    .entry .venue { font-style: italic; font-weight: normal; }
+    .authors { font-size: 0.94rem; color: #333; }
+    .authors .me { text-decoration: underline; }
+    .entry p.desc { font-size: 0.94rem; color: #444; margin-top: 0.15rem; }
+    .links { font-size: 0.88rem; margin-top: 0.15rem; }
+    .links a { margin-right: 0.9rem; }
+
+    /* ===== Education ===== */
+    .edu {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .edu .period {
+      color: #555;
+      font-size: 0.92rem;
+      white-space: nowrap;
+    }
+    .edu .meta { font-size: 0.92rem; color: #555; font-style: italic; }
+
+    footer {
+      border-top: 1px solid #ccc;
+      padding-top: 1rem;
+      font-size: 0.85rem;
+      color: #777;
+      text-align: center;
+    }
+
+    @media (max-width: 560px) {
+      header { flex-direction: column; align-items: center; text-align: center; }
+      .edu { flex-direction: column; gap: 0; }
+    }
+    @media print {
+      .page { padding: 0; }
+      a { text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header id="header"></header>
+    <section id="publications"></section>
+    <section id="research"></section>
+    <section id="projects"></section>
+    <section id="education"></section>
+    <footer id="footer"></footer>
+  </div>
+
+  <script src="data.js"></script>
+  <script>
+    const esc = (s) => String(s)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+
+    const linkList = (links) =>
+      (links && links.length)
+        ? `<p class="links">${links.map(l => `<a href="${esc(l.url)}">[${esc(l.label)}]</a>`).join("")}</p>`
+        : "";
+
+    // ===== Header =====
+    const p = PORTFOLIO.profile;
+    const contactItems = [
+      `<span><a href="mailto:${esc(p.email)}">${esc(p.email)}</a></span>`,
+      ...p.links.map(l => `<span><a href="${esc(l.url)}">${esc(l.label)}</a></span>`),
+    ];
+    document.getElementById("header").innerHTML = `
+      <img class="profile-photo" src="${esc(p.photo)}" alt="Profile photo of ${esc(p.name)}" />
+      <div>
+        <h1>${esc(p.name)}</h1>
+        <div class="role">${esc(p.role)}</div>
+        <p class="bio">${esc(p.bio)}</p>
+        <p class="contact">${contactItems.join('<span class="sep">·</span>')}</p>
+      </div>`;
+    document.title = `${p.name} — AI Researcher`;
+
+    // ===== Publications =====
+    document.getElementById("publications").innerHTML =
+      `<h2>Publications</h2>` +
+      PORTFOLIO.publications.map(pub => `
+        <div class="entry">
+          <h3>${esc(pub.title)}. <span class="venue">${esc(pub.venue)}.</span></h3>
+          <p class="authors">${pub.authors.map(a =>
+            a === p.name ? `<span class="me">${esc(a)}</span>` : esc(a)).join(", ")}</p>
+          <p class="desc">${esc(pub.description)}</p>
+          ${linkList(pub.links)}
+        </div>`).join("");
+
+    // ===== Research =====
+    document.getElementById("research").innerHTML =
+      `<h2>Research Interests</h2>` +
+      PORTFOLIO.research.map(r => `
+        <div class="entry">
+          <h3>${esc(r.title)}</h3>
+          <p class="desc">${esc(r.description)}</p>
+        </div>`).join("");
+
+    // ===== Projects =====
+    document.getElementById("projects").innerHTML =
+      `<h2>Projects</h2>` +
+      PORTFOLIO.projects.map(pr => `
+        <div class="entry">
+          <h3>${esc(pr.title)}${pr.subtitle ? ` <span class="venue">— ${esc(pr.subtitle)}</span>` : ""}</h3>
+          <p class="desc">${esc(pr.description)}</p>
+          ${linkList(pr.links)}
+        </div>`).join("");
+
+    // ===== Education =====
+    document.getElementById("education").innerHTML =
+      `<h2>Education</h2>` +
+      PORTFOLIO.education.map(e => `
+        <div class="entry edu">
+          <div>
+            <h3>${esc(e.degree)}</h3>
+            <p class="meta">${esc(e.meta)}</p>
+          </div>
+          <span class="period">${esc(e.period)}</span>
+        </div>`).join("");
+
+    // ===== Footer =====
+    document.getElementById("footer").textContent = PORTFOLIO.footer;
+  </script>
+</body>
+</html>
