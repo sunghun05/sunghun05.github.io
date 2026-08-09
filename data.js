@@ -30,11 +30,6 @@ const PORTFOLIO = {
 
   research: [
     {
-      title: "INSLab (Intelligence Networking & System Laboratory), Soonchunhyang University",
-      description:
-        "Undergraduate Research Assistant, Apr. 2024 – Present. Deployed a YOLOv8n Pose model on the Hailo8 NPU and optimized the inference pipeline for embedded systems, reducing NPU utilization by ~50% compared to the previous model. Designed a learnable preprocessing layer for a MobileNetV3-based Presentation Attack Detection (PAD) model to improve robustness against spoofing attacks. Evaluated selective post-training quantization (PTQ) strategies on the Hailo8 NPU platform.",
-    },
-    {
       title: "Model Compression & Efficient AI Systems",
       description:
         "Model optimization, quantization, and compression for resource-constrained edge devices, with a focus on maintaining detection performance under reduced computational budgets.",
@@ -68,6 +63,11 @@ const PORTFOLIO = {
       degree: "B.S. Candidate in Computer Software Engineering, Soonchunhyang University",
       period: "2024 – Feb. 2030 (expected)",
       meta: "Overall GPA 4.29/4.5. Dean's List: Spring 2024, Fall 2024, Spring 2025 (Best Academic Award), Fall 2025. Academic Excellence Scholarship: Spring 2024, Fall 2024, Spring 2025, Fall 2025 (Honorable Mention).",
+    },
+    {
+      degree: "INSLab (Intelligence Networking & System Laboratory), Soonchunhyang University",
+      period: "Apr. 2024 – Present",
+      meta: "Undergraduate Research Assistant. Deployed a YOLOv8n Pose model on the Hailo8 NPU and optimized the inference pipeline for embedded systems, reducing NPU utilization by ~50% compared to the previous model. Designed a learnable preprocessing layer for a MobileNetV3-based Presentation Attack Detection (PAD) model to improve robustness against spoofing attacks. Evaluated selective post-training quantization (PTQ) strategies on the Hailo8 NPU platform.",
     },
   ],
 
