@@ -14,7 +14,7 @@
       font-size: 16px;
     }
     .page {
-      max-width: 760px;
+      max-width: 980px;
       margin: 0 auto;
       padding: 3.5rem 1.5rem 4rem;
     }
@@ -23,6 +23,7 @@
 
     /* ===== Header ===== */
     header {
+      position: relative;
       display: flex;
       gap: 2rem;
       align-items: flex-start;
@@ -30,6 +31,20 @@
       border-bottom: 1px solid #111;
       margin-bottom: 2.5rem;
     }
+    .cv-button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: inline-block;
+      border: 1px solid #111;
+      padding: 0.4rem 0.9rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      color: #111;
+    }
+    .cv-button:hover { background: #111; color: #fff; }
     .profile-photo {
       width: 130px;
       height: 160px;
@@ -59,7 +74,7 @@
     /* ===== Sections ===== */
     section { margin-bottom: 2.6rem; }
     h2 {
-      font-size: 1.15rem;
+      font-size: 1.5rem;
       font-weight: bold;
       text-transform: uppercase;
       letter-spacing: 0.12em;
@@ -103,6 +118,7 @@
 
     @media (max-width: 560px) {
       header { flex-direction: column; align-items: center; text-align: center; }
+      .cv-button { position: static; margin-top: 1rem; }
       .edu { flex-direction: column; gap: 0; }
     }
     @media print {
@@ -118,6 +134,7 @@
     <section id="research"></section>
     <section id="projects"></section>
     <section id="education"></section>
+    <section id="awards"></section>
     <footer id="footer"></footer>
   </div>
 
@@ -139,6 +156,7 @@
       ...p.links.map(l => `<span><a href="${esc(l.url)}">${esc(l.label)}</a></span>`),
     ];
     document.getElementById("header").innerHTML = `
+      <a class="cv-button" href="${esc(p.cv)}" download>Download CV</a>
       <img class="profile-photo" src="${esc(p.photo)}" alt="Profile photo of ${esc(p.name)}" />
       <div>
         <h1>${esc(p.name)}</h1>
@@ -153,7 +171,7 @@
       `<h2>Publications</h2>` +
       PORTFOLIO.publications.map(pub => `
         <div class="entry">
-          <h3>${esc(pub.title)}. <span class="venue">${esc(pub.venue)}.</span></h3>
+          <h3><strong>${esc(pub.title)}.</strong> <span class="venue">${esc(pub.venue)}.</span></h3>
           <p class="authors">${pub.authors.map(a =>
             a === p.name ? `<span class="me">${esc(a)}</span>` : esc(a)).join(", ")}</p>
           <p class="desc">${esc(pub.description)}</p>
@@ -189,6 +207,15 @@
             <p class="meta">${esc(e.meta)}</p>
           </div>
           <span class="period">${esc(e.period)}</span>
+        </div>`).join("");
+
+    // ===== Awards =====
+    document.getElementById("awards").innerHTML =
+      `<h2>Scholarships &amp; Awards</h2>` +
+      PORTFOLIO.awards.map(a => `
+        <div class="entry">
+          <h3>${esc(a.title)}</h3>
+          <p class="desc">${esc(a.description)}</p>
         </div>`).join("");
 
     // ===== Footer =====
